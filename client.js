@@ -12,7 +12,12 @@ const connect = function() {
 
   conn.on("connect", () => {
     console.log("Connected");
+    // snake initials
     conn.write("Name: KMS")
+    // snake commands
+    // setInterval(() => {
+    //   conn.write("Move: up")
+    // }, 50);
   });
 
   conn.on("data", (data) => {
