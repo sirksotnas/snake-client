@@ -12,7 +12,7 @@ const setupInput = (conn) => {
   return stdin;
 };
 
-// movement command
+// commands
 const handleUserInput = (key) => {
   if (key === '\u0003') {
     process.exit();
@@ -25,7 +25,17 @@ const handleUserInput = (key) => {
   };
   for (const move in moves) {
     if (move === key) {
-      connection.write(`Move: ${move}`);
+      connection.write(moves[move]);
+    }
+  }
+  const messages = {
+    "1": "Say: Good Game!",
+    "2": "Say: Loser!",
+    "3": "Say: Next Game!"
+  };
+  for (const message in messages) {
+    if (message === key) {
+      connection.write(messages[message]);
     }
   }
 };
